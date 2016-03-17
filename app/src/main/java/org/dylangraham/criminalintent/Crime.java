@@ -1,7 +1,8 @@
 package org.dylangraham.criminalintent;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 
 public class Crime {
@@ -28,7 +29,8 @@ public class Crime {
     }
 
     public String getDate() {
-        return DateFormat.getDateInstance().format(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE MMM d, yyyy", Locale.getDefault());
+        return sdf.format(date);
     }
 
     public void setDate(Date date) {
