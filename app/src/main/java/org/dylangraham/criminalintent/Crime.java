@@ -1,5 +1,6 @@
 package org.dylangraham.criminalintent;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -26,8 +27,8 @@ public class Crime {
         this.title = title;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return DateFormat.getDateInstance().format(date);
     }
 
     public void setDate(Date date) {
