@@ -14,7 +14,6 @@ import java.util.List;
 public class CrimeListFragment extends Fragment {
 
     private RecyclerView crimeRecyclerView;
-    private CrimeAdapter adapter;
 
     @Nullable
     @Override
@@ -32,7 +31,7 @@ public class CrimeListFragment extends Fragment {
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
 
-        adapter = new CrimeAdapter(crimes);
+        CrimeAdapter adapter = new CrimeAdapter(crimes);
         crimeRecyclerView.setAdapter(adapter);
     }
 }
