@@ -15,8 +15,6 @@ import android.widget.EditText;
 
 public class CrimeFragment extends Fragment {
     private Crime crime;
-    private Button dateButton;
-    private CheckBox solvedCheckBox;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,11 +43,11 @@ public class CrimeFragment extends Fragment {
             }
         });
 
-        dateButton = (Button) v.findViewById(R.id.crime_date);
+        Button dateButton = (Button) v.findViewById(R.id.crime_date);
         dateButton.setText(crime.getDate());
         dateButton.setEnabled(false);
 
-        solvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);
+        CheckBox solvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);
         solvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
