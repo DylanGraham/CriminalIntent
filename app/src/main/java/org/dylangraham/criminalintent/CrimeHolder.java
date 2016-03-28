@@ -1,10 +1,10 @@
 package org.dylangraham.criminalintent;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -24,7 +24,8 @@ public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(itemView.getContext(), crime.getTitle() + " clicked!", Toast.LENGTH_SHORT).show();
+        Intent intent = CrimePagerActivity.newIntent(v.getContext(), crime.getId());
+        v.getContext().startActivity(intent);
     }
 
     public void bindCrime(Crime crime) {
