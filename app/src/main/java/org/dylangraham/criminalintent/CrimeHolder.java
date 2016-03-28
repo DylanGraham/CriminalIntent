@@ -24,7 +24,7 @@ public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        Intent intent = CrimeActivity.newIntent(v.getContext(), crime.getId());
+        Intent intent = CrimePagerActivity.newIntent(v.getContext(), crime.getId());
         v.getContext().startActivity(intent);
     }
 
