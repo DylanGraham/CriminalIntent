@@ -31,7 +31,7 @@ public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClick
     public void bindCrime(Crime crime) {
         this.crime = crime;
         titleTextView.setText(crime.getTitle());
-        dateTextView.setText(crime.getDate());
+        dateTextView.setText(crime.getDateString());
         solvedCheckBox.setChecked(crime.isSolved());
     }
 }

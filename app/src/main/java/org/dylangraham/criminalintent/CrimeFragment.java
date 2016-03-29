@@ -60,12 +60,12 @@ public class CrimeFragment extends Fragment {
         });
 
         Button dateButton = (Button) v.findViewById(R.id.crime_date);
-        dateButton.setText(crime.getDate());
+        dateButton.setText(crime.getDateString());
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                DatePickerFragment dialogue = new DatePickerFragment();
+                DatePickerFragment dialogue = DatePickerFragment.newInstance(crime.getDate());
                 dialogue.show(manager, DIALOGUE_DATE);
             }
         });
