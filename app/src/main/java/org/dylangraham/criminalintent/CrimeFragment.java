@@ -1,5 +1,7 @@
 package org.dylangraham.criminalintent;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import java.util.Date;
 import java.util.UUID;
 
 public class CrimeFragment extends Fragment {
@@ -21,6 +24,7 @@ public class CrimeFragment extends Fragment {
     private static final String DIALOGUE_DATE = "DialogueDate";
     private static final int REQUEST_DATE = 0;
     private Crime crime;
+    private Button dateButton;
 
     public static CrimeFragment newInstance(UUID crimeID) {
         Bundle args = new Bundle();
@@ -60,8 +64,8 @@ public class CrimeFragment extends Fragment {
             }
         });
 
-        Button dateButton = (Button) v.findViewById(R.id.crime_date);
-        dateButton.setText(crime.getDateString());
+        dateButton = (Button) v.findViewById(R.id.crime_date);
+        updateDate();
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,5 +86,22 @@ public class CrimeFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) return;
+
+        if (requestCode == REQUEST_DATE) {
+            Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
+            crime.setDate(date);
+            updateDate();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void updateDate() {
+        dateButton.setText(crime.getDateString());
     }
 }
