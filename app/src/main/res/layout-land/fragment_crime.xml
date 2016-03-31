@@ -39,8 +39,6 @@
             android:id="@+id/crime_time"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/two_grids"
-            android:layout_marginRight="@dimen/two_grids"
             android:layout_weight="1" />
 
         <CheckBox

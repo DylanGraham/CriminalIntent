@@ -10,7 +10,8 @@ public class Crime {
     private String title;
     private Date date;
     private boolean solved;
-    private SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMM d, yyyy", Locale.getDefault());
+    private SimpleDateFormat sdfDate = new SimpleDateFormat("EEEE, MMM d, yyyy", Locale.getDefault());
+    private SimpleDateFormat sdfTime = new SimpleDateFormat("h':'mm a", Locale.getDefault());
 
     public Crime() {
         this.id = UUID.randomUUID();
@@ -38,7 +39,11 @@ public class Crime {
     }
 
     public String getDateString() {
-        return sdf.format(date);
+        return sdfDate.format(date);
+    }
+
+    public String getTimeString() {
+        return sdfTime.format(date);
     }
 
     public boolean isSolved() {

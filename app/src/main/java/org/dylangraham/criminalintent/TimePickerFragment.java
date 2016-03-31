@@ -14,7 +14,6 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class TimePickerFragment extends DialogFragment {
     public static final String EXTRA_TIME = "org.dylangraham.criminalintent.time";
@@ -45,20 +44,21 @@ public class TimePickerFragment extends DialogFragment {
         timePicker = (TimePicker) v.findViewById(R.id.dialogue_time_picker);
         timePicker.setCurrentHour(hour);
         timePicker.setCurrentMinute(minute);
+        timePicker.setIs24HourView(true);
 
         return new AlertDialog.Builder(getActivity())
                 .setView(v)
-                .setTitle(R.string.time_picker_title)
+                //.setTitle(R.string.time_picker_title) // Title breaks horizontal layout
                 .setPositiveButton(android.R.string.ok,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                int year = date.getYear();
-                                int month = date.getMonth();
-                                int day = date.getDay();
                                 int hour = timePicker.getCurrentHour();
                                 int minute = timePicker.getCurrentMinute();
-                                Date date = new GregorianCalendar(year, month, day, hour, minute).getTime();
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.set(Calendar.HOUR, hour);
+                                calendar.set(Calendar.MINUTE, minute);
+                                Date date = calendar.getTime();
                                 sendResult(Activity.RESULT_OK, date);
                             }
                         })
