@@ -11,6 +11,7 @@ public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClick
     private Crime crime;
     private TextView titleTextView;
     private TextView dateTextView;
+    private TextView timeTextView;
     private CheckBox solvedCheckBox;
 
     public CrimeHolder(View itemView) {
@@ -19,6 +20,7 @@ public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClick
 
         titleTextView = (TextView) itemView.findViewById(R.id.list_item_crime_title_text_view);
         dateTextView = (TextView) itemView.findViewById(R.id.list_item_crime_date_text_view);
+        timeTextView = (TextView) itemView.findViewById(R.id.list_item_crime_time_text_view);
         solvedCheckBox = (CheckBox) itemView.findViewById(R.id.list_item_crime_solved_checkbox);
     }
 
@@ -32,6 +34,7 @@ public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClick
         this.crime = crime;
         titleTextView.setText(crime.getTitle());
         dateTextView.setText(crime.getDateString());
+        timeTextView.setText(crime.getDateString()); // Change to time string
         solvedCheckBox.setChecked(crime.isSolved());
     }
 }

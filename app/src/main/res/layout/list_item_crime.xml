@@ -27,4 +27,13 @@
         android:layout_toLeftOf="@id/list_item_crime_solved_checkbox"
         android:padding="@dimen/half_grid"
         android:text="New Text" />
+
+    <TextView
+        android:id="@+id/list_item_crime_time_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list_item_crime_title_text_view"
+        android:layout_toLeftOf="@id/list_item_crime_solved_checkbox"
+        android:padding="@dimen/half_grid"
+        android:text="New Text" />
 </RelativeLayout>
