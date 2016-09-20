@@ -6,16 +6,20 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import org.dylangraham.criminalintent.databinding.ListItemCrimeBinding;
+
 public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+    private final ListItemCrimeBinding binding;
     private Crime crime;
     private TextView titleTextView;
     private TextView dateTextView;
     private TextView timeTextView;
     private CheckBox solvedCheckBox;
 
-    public CrimeHolder(View itemView) {
-        super(itemView);
+    public CrimeHolder(ListItemCrimeBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
         itemView.setOnClickListener(this);
 
         titleTextView = (TextView) itemView.findViewById(R.id.list_item_crime_title_text_view);

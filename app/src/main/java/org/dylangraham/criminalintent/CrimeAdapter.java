@@ -1,10 +1,13 @@
 package org.dylangraham.criminalintent;
 
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import org.dylangraham.criminalintent.databinding.ListItemCrimeBinding;
 
 import java.util.List;
 
@@ -19,9 +22,9 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder> {
     @Override
     public CrimeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View v = layoutInflater.inflate(R.layout.list_item_crime, parent, false);
+        ListItemCrimeBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.list_item_crime, parent, false);
 
-        return new CrimeHolder(v);
+        return new CrimeHolder(binding);
     }
 
     @Override
